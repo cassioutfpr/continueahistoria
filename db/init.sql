@@ -1,12 +1,7 @@
 CREATE DATABASE Cah;
 use Cah;
 
-CREATE TABLE Users (
-  id VARCHAR(32),
-  name VARCHAR(32),
-  email VARCHAR(32),
-  password VARCHAR(32),
-);
+CREATE TABLE Users (id VARCHAR(32),name VARCHAR(32),email VARCHAR(32),password VARCHAR(32));
 
 INSERT INTO Users
 	(id, name, email, password)

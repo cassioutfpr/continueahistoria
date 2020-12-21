@@ -11,7 +11,7 @@ config = {
 	'password': 'root',
 	'host': 'db',
 	'port': '3306',
-	'database': 'cah'
+	'database': 'Cah'
 }
 
 #settings
