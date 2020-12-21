@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container overflow-hidden">
+  <div class="row gx-2">
+    <div class="col align-self-center">
+     <div class="p-3">
+    	<h2 class="pl-0">Faça parte da comunidade</h2>
+    	</br>
+	    <div class="container pl-0">
+		  	<div class="row">
+		    	<div class="col-md-auto">
+		      		<div>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
+  							<path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+  							<path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+  							<path fill-rule="evenodd" d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+						</svg>
+		      		</div>
+		    	</div>
+			    <div class="col-md-auto align-self-center p-0" style="font-size: 15px;">
+			    	Começe histórias para seus amigos continuarem
+			    </div>
+	  		</div>
+		</div>
+	    <div class="container pl-0 pt-3">
+		  	<div class="row">
+		    	<div class="col-md-auto">
+		      		<div>
+  			    		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+			 				<path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+						</svg>
+		      		</div>
+		      		<div>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down" viewBox="0 0 16 16">
+			  				<path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+						</svg>
+		      		</div>
+		    	</div>
+			    
+			    <div class="col-md-auto align-self-center p-0" style="font-size: 15px;">
+			    	Escolha as melhores continuações
+			    </div>
+	  		</div>
+		</div>
+	    <div class="container pl-0 pt-3">
+		  	<div class="row">
+		    	<div class="col-md-auto">
+		      		<div>
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-hammer" viewBox="0 0 16 16">
+  							<path d="M9.812 1.952a.5.5 0 0 1-.312.89c-1.671 0-2.852.596-3.616 1.185L4.857 5.073V6.21a.5.5 0 0 1-.146.354L3.425 7.853a.5.5 0 0 1-.708 0L.146 5.274a.5.5 0 0 1 0-.706l1.286-1.29a.5.5 0 0 1 .354-.146H2.84C4.505 1.228 6.216.862 7.557 1.04a5.009 5.009 0 0 1 2.077.782l.178.129z"/>
+  							<path fill-rule="evenodd" d="M6.012 3.5a.5.5 0 0 1 .359.165l9.146 8.646A.5.5 0 0 1 15.5 13L14 14.5a.5.5 0 0 1-.756-.056L4.598 5.297a.5.5 0 0 1 .048-.65l1-1a.5.5 0 0 1 .366-.147z"/>
+						</svg>
+		      		</div>
+		    	</div>
+			    <div class="col-md-auto align-self-center p-0" style="font-size: 15px;">
+			    	Construa uma história com a comunidade
+			    </div>
+	  		</div>
+		</div>
+     </div>
+    </div>
+    <div class="col">
+      <div class="p-3">
+      	<div class="card card-body">
+			<form action="/add_user" method="POST">
+			
+				{% with messages = get_flashed_messages() %}
+				{% if messages %}
+				{% for message in messages %}
+					<div class="alert alert-success alert-dismissible fade show" role="alert">
+					  <strong>Só falta um passo!</strong> Vá até o seu email para confirmar o cadastro.
+						<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					</div>
+				{% endfor %}
+				{% endif %}
+				{% endwith %}
+
+
+				<h5 class="card-title">Registrar</h5>
+
+				<div class="form-group">
+					<input type="text" name="user" placeholder="Usuário" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<input type="text" name="email" placeholder="Email" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<input type="text" name="password" placeholder="Senha" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<input type="text" name="confirmPassword" placeholder="Repetir Senha" class="form-control">
+				</div>
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-success btn-block">Registrar</button>
+				</div>
+				
+			</form>
+		</div>
+      	
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
