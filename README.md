@@ -25,4 +25,4 @@ Run any query, e.g select * from
     SELECT * FROM table_name;
 
 
-### `docker exec -it python_container_name /bin/bash
+### `docker exec -it python_container_name /bin/bash`
