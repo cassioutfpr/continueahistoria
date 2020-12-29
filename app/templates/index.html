@@ -2,14 +2,21 @@
 
 {% block body %}
 
-<div class="row">
-	<div class="col-md-2 d-none d-sm-table-cell" style="border-style: solid; border-width: 1px;border-color: #b4b4b4">
-		Perfil da fera
+<div class="row mt-4">
+	<div class="col-md-2 d-none d-md-table-cell pt-4" style="border-right-style: solid; border-right-width: 1px;border-right-color: #b4b4b4;height: 100vh;">
+		<div class="d-flex align-items-start" style="position: fixed">
+		  	<div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+			    <a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+			    <a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Perfil</a>
+			    <a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Notificações</a>
+			    <a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Ajuda</a>
+		  	</div>
+		</div>
 	</div>
 
-	<div class="container col-md-7 pt-4 pl-0 pr-0">
-		<div class="row" style="border-style: none">
-			<div class="col" style="font-size: 28px;">
+	<div class="container col-md-7 pt-4 pl-0 pr-0 m-0">
+		<div class="row m-0" style="border-style: none">
+			<div class="col pl-2" style="font-size: 28px;">
 				Todas as Hitórias
 			</div>
 			<div class="col-sm-auto">
@@ -17,41 +24,321 @@
 			</div>
 		</div>
 
-		<div class="card text-center mt-3" style="border-style: none">
-  			<div class="card-header row" style="border-style: none">
-  				<div class="col">
-	    			<ul class="nav nav-tabs card-header-tabs">
-		   				<li class="nav-item">
-		       				<a class="nav-link active" aria-current="true" href="#">Populares</a>
-	      				</li>
-	      				<li class="nav-item">
-		        			<a class="nav-link" aria-current="false" href="#">Ativas</a>
-		      			</li>
-		      			<li class="nav-item">
-		       				<a class="nav-link" aria-current="false" href="#">Novas</a>
-		     			</li>
-		      			<li class="nav-item">
-		       				<a class="nav-link" aria-current="false" href="#">Minhas</a>
-		     			</li>
-	    			</ul>
-    			</div>
-    			<div class="col-sm-auto d-none d-sm-table-cell"  style="font-size: 14px;">
-					32132 histórias
+		<div class="row pt-4 m-0">
+			<div class="col pl-2" style="font-size: 18px;">
+				32132 histórias
+			</div>
+			<div class="col-sm-auto">
+				<nav aria-label="Page navigation example">
+	  				<ul class="pagination">
+	    				<li class="page-item"><a class="page-link" href="#">Populares</a></li>
+	    				<li class="page-item"><a class="page-link" href="#">Ativas</a></li>
+	    				<li class="page-item"><a class="page-link" href="#">Novas</a></li>
+	    				<li class="page-item"><a class="page-link" href="#">Minhas</a></li>
+	  				</ul>
+				</nav>
+			</div>
+		</div>
+
+
+
+		<div class="container" style="border-style: solid; border-width: 1px;border-color: #b4b4b4; background-color: white">
+			<div class="row mt-2">
+				<div class="col-auto" style="text-align: center;">
+					<div class="d-grid gap-0">
+						<div class="p-0" style="">8415</div>
+						<div class="p-0" style="font-size: 8px">votos</div>
+					</div>
+					<div class="d-grid gap-0 mt-2">
+						<div class="p-0" style="">42</div>
+						<div class="p-0" style="font-size: 8px">respostas</div>
+					</div>
 				</div>
-  			</div>
-  			<div class="card-body" style="border-style: none">
-    			<h5 class="card-title">Special title treatment</h5>
-    			<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-   				<a href="#" class="btn btn-primary">Go somewhere</a>
-   			</div>
+				<div class="col" style="text-align: left">
+					<a class="nav-link p-0" aria-current="false" href="#" style="font-size: 16px">A cigarra e a formiga</a>
+					<p style="font-size: 10px" class="mb-0">Havia uma cigarra que passou todo o verão a cantar, aproveitando os agradáveis fins de tarde e curtindo o tempo de forma despreocupada. Mas quando chegou o gelado inverno, a cigarra já não ...</p>
+					<div class="row mt-1 mb-2 pl-3">
+						<div class="col">
+							<div class="row">
+								<div class="col-auto pr-0 pl-0">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">terror</button>
+								</div>
+								<div class="col-auto pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">fantasia</button>
+								</div>
+								<div class="col-2 pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">comédia</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto" style="font-size: 10px">
+							<div class="d-grid gap-0">
+								<div class="p-0">Criado em 24/12/20</div>
+							</div>
+						  	<div class="d-grid gap-0 mt-1">
+								Autor: <a class="nav-link p-0" aria-current="false" href="#" style="display: inline;">Seu Joaquim</a>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" style="border-style: solid; border-width: 1px;border-color: #b4b4b4; background-color: white">
+			<div class="row mt-2">
+				<div class="col-auto" style="text-align: center;">
+					<div class="d-grid gap-0">
+						<div class="p-0" style="">8415</div>
+						<div class="p-0" style="font-size: 8px">votos</div>
+					</div>
+					<div class="d-grid gap-0 mt-2">
+						<div class="p-0" style="">42</div>
+						<div class="p-0" style="font-size: 8px">respostas</div>
+					</div>
+				</div>
+				<div class="col" style="text-align: left">
+					<a class="nav-link p-0" aria-current="false" href="#" style="font-size: 16px">A raposa e o leão</a>
+					<p style="font-size: 10px" class="mb-0">Tinha a Raposa o seu covil bem fechado e estava lá dentro a gemer, porque estava doente; chegou à porta um Leão e perguntou-lhe como estava, e que a deixasse entrar, porque a queria lamber, que ...</p>
+					<div class="row mt-1 mb-2 pl-3">
+						<div class="col">
+							<div class="row">
+								<div class="col-auto pr-0 pl-0">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">terror</button>
+								</div>
+								<div class="col-auto pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">fantasia</button>
+								</div>
+								<div class="col-2 pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">comédia</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto" style="font-size: 10px">
+							<div class="d-grid gap-0">
+								<div class="p-0">Criado em 24/12/20</div>
+							</div>
+						  	<div class="d-grid gap-0 mt-1">
+								Autor: <a class="nav-link p-0" aria-current="false" href="#" style="display: inline;">Seu Joaquim</a>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" style="border-style: solid; border-width: 1px;border-color: #b4b4b4; background-color: white">
+			<div class="row mt-2">
+				<div class="col-auto" style="text-align: center;">
+					<div class="d-grid gap-0">
+						<div class="p-0" style="">8415</div>
+						<div class="p-0" style="font-size: 8px">votos</div>
+					</div>
+					<div class="d-grid gap-0 mt-2">
+						<div class="p-0" style="">42</div>
+						<div class="p-0" style="font-size: 8px">respostas</div>
+					</div>
+				</div>
+				<div class="col" style="text-align: left">
+					<a class="nav-link p-0" aria-current="false" href="#" style="font-size: 16px">A raposa e o leão</a>
+					<p style="font-size: 10px" class="mb-0">Tinha a Raposa o seu covil bem fechado e estava lá dentro a gemer, porque estava doente; chegou à porta um Leão e perguntou-lhe como estava, e que a deixasse entrar, porque a queria lamber, que ...</p>
+					<div class="row mt-1 mb-2 pl-3">
+						<div class="col">
+							<div class="row">
+								<div class="col-auto pr-0 pl-0">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">terror</button>
+								</div>
+								<div class="col-auto pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">fantasia</button>
+								</div>
+								<div class="col-2 pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">comédia</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto" style="font-size: 10px">
+							<div class="d-grid gap-0">
+								<div class="p-0">Criado em 24/12/20</div>
+							</div>
+						  	<div class="d-grid gap-0 mt-1">
+								Autor: <a class="nav-link p-0" aria-current="false" href="#" style="display: inline;">Seu Joaquim</a>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" style="border-style: solid; border-width: 1px;border-color: #b4b4b4; background-color: white">
+			<div class="row mt-2">
+				<div class="col-auto" style="text-align: center;">
+					<div class="d-grid gap-0">
+						<div class="p-0" style="">8415</div>
+						<div class="p-0" style="font-size: 8px">votos</div>
+					</div>
+					<div class="d-grid gap-0 mt-2">
+						<div class="p-0" style="">42</div>
+						<div class="p-0" style="font-size: 8px">respostas</div>
+					</div>
+				</div>
+				<div class="col" style="text-align: left">
+					<a class="nav-link p-0" aria-current="false" href="#" style="font-size: 16px">A raposa e o leão</a>
+					<p style="font-size: 10px" class="mb-0">Tinha a Raposa o seu covil bem fechado e estava lá dentro a gemer, porque estava doente; chegou à porta um Leão e perguntou-lhe como estava, e que a deixasse entrar, porque a queria lamber, que ...</p>
+					<div class="row mt-1 mb-2 pl-3">
+						<div class="col">
+							<div class="row">
+								<div class="col-auto pr-0 pl-0">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">terror</button>
+								</div>
+								<div class="col-auto pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">fantasia</button>
+								</div>
+								<div class="col-2 pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">comédia</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto" style="font-size: 10px">
+							<div class="d-grid gap-0">
+								<div class="p-0">Criado em 24/12/20</div>
+							</div>
+						  	<div class="d-grid gap-0 mt-1">
+								Autor: <a class="nav-link p-0" aria-current="false" href="#" style="display: inline;">Seu Joaquim</a>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" style="border-style: solid; border-width: 1px;border-color: #b4b4b4; background-color: white">
+			<div class="row mt-2">
+				<div class="col-auto" style="text-align: center;">
+					<div class="d-grid gap-0">
+						<div class="p-0" style="">8415</div>
+						<div class="p-0" style="font-size: 8px">votos</div>
+					</div>
+					<div class="d-grid gap-0 mt-2">
+						<div class="p-0" style="">42</div>
+						<div class="p-0" style="font-size: 8px">respostas</div>
+					</div>
+				</div>
+				<div class="col" style="text-align: left">
+					<a class="nav-link p-0" aria-current="false" href="#" style="font-size: 16px">A raposa e o leão</a>
+					<p style="font-size: 10px" class="mb-0">Tinha a Raposa o seu covil bem fechado e estava lá dentro a gemer, porque estava doente; chegou à porta um Leão e perguntou-lhe como estava, e que a deixasse entrar, porque a queria lamber, que ...</p>
+					<div class="row mt-1 mb-2 pl-3">
+						<div class="col">
+							<div class="row">
+								<div class="col-auto pr-0 pl-0">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">terror</button>
+								</div>
+								<div class="col-auto pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">fantasia</button>
+								</div>
+								<div class="col-2 pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">comédia</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto" style="font-size: 10px">
+							<div class="d-grid gap-0">
+								<div class="p-0">Criado em 24/12/20</div>
+							</div>
+						  	<div class="d-grid gap-0 mt-1">
+								Autor: <a class="nav-link p-0" aria-current="false" href="#" style="display: inline;">Seu Joaquim</a>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container" style="border-style: solid; border-width: 1px;border-color: #b4b4b4; background-color: white">
+			<div class="row mt-2">
+				<div class="col-auto" style="text-align: center;">
+					<div class="d-grid gap-0">
+						<div class="p-0" style="">8415</div>
+						<div class="p-0" style="font-size: 8px">votos</div>
+					</div>
+					<div class="d-grid gap-0 mt-2">
+						<div class="p-0" style="">42</div>
+						<div class="p-0" style="font-size: 8px">respostas</div>
+					</div>
+				</div>
+				<div class="col" style="text-align: left">
+					<a class="nav-link p-0" aria-current="false" href="#" style="font-size: 16px">A raposa e o leão</a>
+					<p style="font-size: 10px" class="mb-0">Tinha a Raposa o seu covil bem fechado e estava lá dentro a gemer, porque estava doente; chegou à porta um Leão e perguntou-lhe como estava, e que a deixasse entrar, porque a queria lamber, que ...</p>
+					<div class="row mt-1 mb-2 pl-3">
+						<div class="col">
+							<div class="row">
+								<div class="col-auto pr-0 pl-0">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">terror</button>
+								</div>
+								<div class="col-auto pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">fantasia</button>
+								</div>
+								<div class="col-2 pr-0 pl-1">
+								 	<button type="button" class="btn btn-outline-primary btn-sm p-1" style="height:20px;width:fit-content;font-size: 9px;text-transform: none;">comédia</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-auto" style="font-size: 10px">
+							<div class="d-grid gap-0">
+								<div class="p-0">Criado em 24/12/20</div>
+							</div>
+						  	<div class="d-grid gap-0 mt-1">
+								Autor: <a class="nav-link p-0" aria-current="false" href="#" style="display: inline;">Seu Joaquim</a>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 
-	<div class="col-md" style="border-style: solid; border-width: 1px;border-color: #b4b4b4">
-		Categorias
+	<div class="col-md d-none d-md-table-cell" style="border-style: solid; border-width: 1px;border-color: #b4b4b4">
+		<div class="mb-2 mt-4" style="font-size: 18px;	">
+			Categorias
+		</div>
+		<div class="container mb-2" style="text-align: left;">
+		  	<div class="row row-cols-auto">
+		    	<div class="col-auto p-0">
+		    		<button type="button" class="btn btn-outline-primary btn-sm p-1" 
+		    		style="height:20px;width:fit-content;font-size: 9px;text-transform: none;
+		    		background-color: #e1ecf4; color: #0077cc">terror</button>
+		   	 	</div>
+		    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
+		  	</div>
+		</div>
+		<div class="container mb-2" style="text-align: left;">
+		  	<div class="row row-cols-auto">
+		    	<div class="col-auto p-0">
+		    		<button type="button" class="btn btn-outline-primary btn-sm p-1" 
+		    		style="height:20px;width:fit-content;font-size: 9px;text-transform: none;
+		    		background-color: #e1ecf4; color: #0077cc">fantasia</button>
+		   	 	</div>
+		    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
+		  	</div>
+		</div>
+		<div class="container mb-2" style="text-align: left;">
+		  	<div class="row row-cols-auto">
+		    	<div class="col-auto p-0">
+		    		<button type="button" class="btn btn-outline-primary btn-sm p-1" 
+		    		style="height:20px;width:fit-content;font-size: 9px;text-transform: none;
+		    		background-color: #e1ecf4; color: #0077cc">romance</button>
+		   	 	</div>
+		    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
+		  	</div>
+		</div>
 	</div>
 	
 </div>
+
+<footer>
+	<div class="row navbar-dark bg-dark">
+		FOOTEEEEER @2020dsa
+	</div>
+</footer>
 
 
 
