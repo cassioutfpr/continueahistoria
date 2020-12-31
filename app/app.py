@@ -41,6 +41,21 @@ def Index():
 def Login():
 	return render_template('login.html')
 
+@app.route('/login_user', methods=['POST'])
+def login_user():
+	if request.method == 'POST':
+		email = request.form['email']
+		password = request.form['password']  #HASH IT FIRST
+
+		connection = mysql.connector.connect(**config)
+		cursor = connection.cursor()
+		cursor.execute('SELECT * FROM Users WHERE email = %s AND password = %s', (email, password))
+		data = cursor.fetchall()
+		print(data)
+		#if data null ....
+
+		return redirect(url_for('Index'))
+
 @app.route('/register')
 def Register():
 	return render_template('register.html')
@@ -48,6 +63,9 @@ def Register():
 @app.route('/add_user', methods=['POST'])
 def add_user():
 	if request.method == 'POST':
+		#TODO: check password and confirm password
+		#return to front
+
 		user = request.form['user']
 		email = request.form['email']
 		password = request.form['password']  #HASH IT FIRST
@@ -55,6 +73,8 @@ def add_user():
 		connection = mysql.connector.connect(**config)
 		cursor = connection.cursor()
 		
+		#check if email and username exist
+		#return to front if they do
 		cursor.execute('INSERT INTO Users (id, name, email, password) VALUES (%s, %s, %s, %s)', (str(uuid.uuid4().hex), user, email, password))
 		
 		connection.commit()
