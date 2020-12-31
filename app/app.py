@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from typing import List, Dict
 import mysql.connector
 import json
+import uuid
 
 app = Flask(__name__)
 
@@ -47,20 +48,21 @@ def Register():
 @app.route('/add_user', methods=['POST'])
 def add_user():
 	if request.method == 'POST':
-		flash('')
-		return redirect(url_for('Register'))
-
-@app.route('/add_contact', methods=['POST'])
-def add_contact():
-	if request.method == 'POST':
-		name = request.form['name']
+		user = request.form['user']
+		email = request.form['email']
+		password = request.form['password']  #HASH IT FIRST
+	
 		connection = mysql.connector.connect(**config)
 		cursor = connection.cursor()
-		cursor.execute('INSERT INTO Users (id, name) VALUES (%s, %s)', ( "18", name))
+		
+		cursor.execute('INSERT INTO Users (id, name, email, password) VALUES (%s, %s, %s, %s)', (str(uuid.uuid4().hex), user, email, password))
+		
 		connection.commit()
 		flash('Contact Added succesfully')
 		cursor.close()
 		connection.close()
+	
+
 		return redirect(url_for('Index'))
 
 @app.route('/getUsers')
