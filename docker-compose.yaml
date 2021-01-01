@@ -2,17 +2,19 @@ version: "2"
 services:
   app:
     build: ./app
-    links:
-      - db
+    depends_on:
+      - mysql
     ports:
       - "5000:5000"
     volumes: 
       ['./app:/app']
 
-  db:
+  mysql:
     image: mysql:5.7
     ports:
-      - "32000:3306"
+      - "3306:3306"
+    expose:
+      - "3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
     volumes:
