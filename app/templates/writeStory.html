@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="p-0" id="content">
+	<div class="mt-5">
+		<div class="container-fluid pt-4 mt-4" style="">
+			<div class="row">
+			    <div class="col-auto" style="font-size: 22px;">
+			    	Crie uma história, {{ name }}
+			    </div>
+	   	    	<div class="col" style="position:relative;">
+		      		<div style="position:absolute;top: 0; bottom: 0; left: 0; right: 0;margin: auto;height: 20px;">
+		      			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-vector-pen" viewBox="0 0 16 16">
+		      			  <path fill-rule="evenodd" d="M10.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1 0 .708l-1.902 1.902-.829 3.313a1.5 1.5 0 0 1-1.024 1.073L1.254 14.746 4.358 4.4A1.5 1.5 0 0 1 5.43 3.377l3.313-.828L10.646.646zm-1.8 2.908l-3.173.793a.5.5 0 0 0-.358.342l-2.57 8.565 8.567-2.57a.5.5 0 0 0 .34-.357l.794-3.174-3.6-3.6z"/>
+		      			  <path fill-rule="evenodd" d="M2.832 13.228L8 9a1 1 0 1 0-1-1l-4.228 5.168-.026.086.086-.026z"/>
+		      			</svg>
+		      		</div>
+		    	</div>
+	  		</div>
+			
+		</div>
+	</div>
+	<div class="row mt-4 pl-2 pr-2">
+		<div class="container col-md-9 ">
+			<div class="card">
+		  		<div class="card-body">
+		  			<div id="title">
+						<p class="mb-0"><b>Título</b></p>
+						<p class="mb-0" style="font-size: 10px">Dê um título para sua história com a primeira letra maiúscula.</p>
+				    	<div class="input-group mb-3">
+				    	  	<input type="text" class="form-control" placeholder="ex: O Leão e o Rato" aria-label="Username" aria-describedby="basic-addon1" style="white-space: pre-line">
+				    	</div>
+			    	</div>
+			    	<div class="mt-4" id="story-body">
+			    		<p class="mb-0"><b>Comece sua história</b></p>
+			    		<p class="mb-0" style="font-size: 10px">Escreva o que achar necessário para estabelecer o local, os personagens e o tom da história.</p>
+			    		<div class="input-group">
+			    		  	<textarea class="form-control" aria-label="With textarea" placeholder="ex: O leão e o rato estavam andando pelo bosque quando encontraram uma pedra que parecia muito estranha. O leão olhou para o lado e viu..."></textarea>
+			    		</div>
+			    	</div>
+		  			<div class="mt-4"  id="tags-body">
+						<p class="mb-0"><b>Tags</b></p>
+						<p class="mb-0" style="font-size: 10px">Adicione tags para que as pessoas encontrem sua história</p>
+				    	<div class="input-group mb-3">
+				    	  	<input type="text" class="form-control" placeholder="ex: Fantasia; Romance" aria-label="Username" aria-describedby="basic-addon1" style="white-space: pre-line">
+				    	</div>
+				    	<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1" >romance</button>
+				    	<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1" >comédia</button>
+				    	<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1" >fantasia</button>
+			    	</div>
+			  	</div>
+			  	<a style="float: right" class="btn btn-primary mt-3 mb-2" aria-current="page" href="/write_story">Criar História</a>
+			</div>
+		</div>
+		<div class="container col-md-3 d-none d-md-table-cell">
+			<div class="card">
+		  		<div class="card-body">
+		    		<p><b>Dicas:</b></p>
+		    		<ul class="pl-3" style="font-size: 12px">
+  						<li>Apresente os personagens e o local</li>
+  						<li>Descreva algumas características dos personagens</li>
+  						<li>Apresente um problema para que os personagens o resolvam</li>
+					</ul>  
+			  	</div>
+			</div>
+		</div>					
+	</div>
+</div>	
+
+{% endblock %}

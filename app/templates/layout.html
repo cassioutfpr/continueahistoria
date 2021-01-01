@@ -15,7 +15,8 @@
 		border-top-color: #f7b53c;
 	}
 	.navbar-logo {
-		color: white;font-size: 16px;
+		color: white;
+		font-size: 16px;
 		position: absolute;
 		top: 20%;
 	}
@@ -24,12 +25,17 @@
 
 	<div class="container-fluid fixed-top navbar-top-border">
 		<div class="row navbar-dark bg-dark">
-			<div class="container col-2 ml-3">
+			<div class="container col ml-3">
 				<a class="navbar-logo" href="/">Continue a História</a>
 			</div>
 			<div class="col-auto d-flex" style="font-size: 12px">
-				<a class="nav-link active" aria-current="page" href="/login">Login</a>
-				<a class="nav-link active" aria-current="page" href="/register">Registrar</a>
+				{% if not current_user.is_authenticated %}
+				<a class="nav-link active" aria-current="page" href="{{ url_for('auth.login') }}">Login</a>
+				<a class="nav-link active" aria-current="page" href="{{ url_for('auth.signup') }}">Registrar</a>
+				{% endif %}
+				{% if current_user.is_authenticated %}
+				<a class="nav-link active" aria-current="page" href="{{ url_for('auth.logout') }}">Logout</a>
+				{% endif %}
 			</div>
 		</div>
 	</div>
