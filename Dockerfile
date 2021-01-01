@@ -15,15 +15,7 @@ WORKDIR app
 COPY * /app/
 
 # Install any needed packages specified in requirements.txt
-RUN pip install -r requirements.txt
-RUN pip install flask-login
+RUN pip install -r ./requirements.txt
 
 # Run app.py when the container launches
-CMD python app.py
-
-
-
-
-
-
-
+CMD python web/app.py
