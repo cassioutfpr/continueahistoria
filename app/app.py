@@ -14,7 +14,7 @@ app = Flask(__name__)
 config = {
 	'user': 'root',
 	'password': 'root',
-	'host': 'db',
+	'host': 'mysql',
 	'port': '3306',
 	'database': 'Cah'
 }
