@@ -27,6 +27,7 @@ app.register_blueprint(main)
 
 login_manager = LoginManager()
 login_manager.login_view = 'auth.login'
+login_manager.login_message = "Faça login para acessar esta página"
 login_manager.init_app(app)
 
 @login_manager.user_loader
