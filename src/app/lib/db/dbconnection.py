@@ -5,7 +5,6 @@ class DbConnection:
 
     main_db_config = {
         'user': 'root',
-        'password': 'root',
         'host': 'localhost',
         'port': '3306',
         'database': 'Cah'

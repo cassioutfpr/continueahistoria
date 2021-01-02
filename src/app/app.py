@@ -13,7 +13,6 @@ app = Flask(__name__, template_folder='web/templates')
 #MYSQL CONNECTION
 config = {
 	'user': 'root',
-	'password': 'root',
 	'host': 'mysql',
 	'port': '3306',
 	'database': 'Cah'
