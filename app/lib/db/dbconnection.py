@@ -10,14 +10,13 @@ class DbConnection:
         'port': '3306',
         'database': 'Cah'
     }
+    main_connection = mysql.connector.connect(**main_db_config)
 
-    def __init__(self):
-        self.connection = mysql.connector.connect(**self.main_db_config)
+    def __del__(self):
+        DbConnection.main_connection.commit()
+        DbConnection.main_connection.close()
 
-    def get_main_cursor(self):
-        return self.connection.cursor()
-
-    def close_connection(self):
-        self.connection.cursor().close()
-        self.connection.close()
+    @staticmethod
+    def get_main_cursor():
+        return DbConnection.main_connection.cursor()
 

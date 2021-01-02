@@ -2,16 +2,21 @@ from app.lib.db.dbconnection import *
 
 
 def execute_query(query, params=()):
-    main_db_connection = DbConnection()
-    cursor = main_db_connection.get_main_cursor()
+    cursor = DbConnection.get_main_cursor()
 
     cursor.execute(query, params)
     columns = cursor.column_names
     rows = cursor.fetchall()
 
-    main_db_connection.close_connection()
+    cursor.close()
 
     return __build_dictionary_result_set(columns, rows)
+
+
+def execute_statement(statement, params=()):
+    cursor = DbConnection.get_main_cursor()
+    cursor.execute(statement, params)
+    cursor.close()
 
 
 def __build_dictionary_result_set(columns, rows):
