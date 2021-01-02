@@ -1,11 +1,12 @@
 import mysql.connector
+import os
 
 
 class DbConnection:
 
     main_db_config = {
         'user': 'root',
-        'host': 'localhost',
+        'host': os.environ['MAIN_DB_HOST'],
         'port': '3306',
         'database': 'Cah'
     }

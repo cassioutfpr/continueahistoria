@@ -4,13 +4,13 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 import mysql.connector
 import uuid
+import os
 
 auth = Blueprint('auth', __name__)
 
 config = {
 	'user': 'root',
-	'password': 'root',
-	'host': 'db',
+	'host': os.environ['MAIN_DB_HOST'],
 	'port': '3306',
 	'database': 'Cah'
 }

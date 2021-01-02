@@ -4,6 +4,10 @@ language: python
 python:
   - "3.6"
 
+env:
+  global:
+    - "MAIN_DB_HOST=localhost"
+
 services:
   - mysql
 
