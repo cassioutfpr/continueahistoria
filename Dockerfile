@@ -9,13 +9,13 @@ EXPOSE 5000
 # Sets the working directory for following COPY and CMD instructions
 # Notice we haven’t created a directory by this name - this instruction 
 # creates a directory with this name if it doesn’t exist
-WORKDIR app
+WORKDIR dir
 
-# COPY EVERITHING TO APP FOLDER
-COPY * /app/
+# COPY EVERITHING TO DIR FOLDER
+COPY * /dir/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r ./requirements.txt
 
 # Run app.py when the container launches
-CMD python app.py
+CMD python ./src/app/app.py

@@ -1,0 +1,17 @@
+dist: trusty
+
+language: python
+python:
+  - "3.6"
+
+services:
+  - mysql
+
+before_install:
+  - mysql -u root --password="" < db/init.sql
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - python -m unittest discover

@@ -7,7 +7,7 @@ services:
     ports:
       - "5000:5000"
     volumes: 
-      ['./app:/app']
+      ['.:/dir']
 
   mysql:
     image: mysql:5.7
@@ -16,6 +16,6 @@ services:
     expose:
       - "3306"
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
     volumes:
       - ./db:/docker-entrypoint-initdb.d/:ro

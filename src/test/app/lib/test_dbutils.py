@@ -1,6 +1,6 @@
 import unittest
-from test import db_testcase
-from app.lib.utils import dbutils
+from src.test import db_testcase
+from src.app.lib.utils import dbutils
 
 
 class DbUtilsTest(db_testcase.DbTestCase):
