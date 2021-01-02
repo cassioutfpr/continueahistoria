@@ -1,6 +1,6 @@
 import unittest
-from app.lib.db.dbconnection import *
-from app.lib.utils import dbutils
+from src.app.lib.db.dbconnection import *
+from src.app.lib.utils import dbutils
 
 
 class DbTestCase(unittest.TestCase):

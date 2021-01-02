@@ -1,4 +1,4 @@
-from app.lib.db.dbconnection import *
+from src.app.lib.db.dbconnection import *
 
 
 def execute_query(query, params=()):
