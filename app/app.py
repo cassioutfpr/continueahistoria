@@ -1,14 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from typing import List, Dict
 from flask_login import LoginManager
-from auth import auth
-from main import main
-from models import User
+from web.auth import auth
+from web.main import main
+from web.models import User
 import mysql.connector
 import json
 import uuid
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='web/templates')
 
 #MYSQL CONNECTION
 config = {
