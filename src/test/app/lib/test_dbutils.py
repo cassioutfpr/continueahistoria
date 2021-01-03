@@ -11,13 +11,14 @@ class DbUtilsTest(db_testcase.DbTestCase):
         email = 'thewhite@gmail.com'
         password = '123456'
         params = (name, email, password)
-        dbutils.execute_statement(statement, params)
+        inserted_id = dbutils.execute_statement(statement, params)
 
         query = "SELECT * FROM Users WHERE name = %s;"
         params = (name,)
         result_set = dbutils.execute_query(query, params)
 
         self.assertEqual(1, len(result_set))
+        self.assertEqual(inserted_id, result_set[0]['id'])
         self.assertEqual(name, result_set[0]['name'])
         self.assertEqual(email, result_set[0]['email'])
         self.assertEqual(password, result_set[0]['password'])

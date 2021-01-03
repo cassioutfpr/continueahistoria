@@ -1,9 +1,13 @@
+import sys
+import os.path
+sys.path.append(os.path.abspath('./'))
+
 from flask import Flask, render_template, request, redirect, url_for, flash
 from typing import List, Dict
 from flask_login import LoginManager
-from web.auth import auth
-from web.main import main
-from web.models import User
+from src.app.web.auth import auth
+from src.app.web.main import main
+from src.app.web.models import User
 import mysql.connector
 import json
 import uuid
