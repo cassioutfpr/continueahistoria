@@ -38,6 +38,7 @@ def loginPost():
 def signup():
 	return render_template('signup.html')
 
+
 @auth.route('/signup', methods=['POST'])
 def signupPost():
 	if request.method == 'POST':
@@ -48,21 +49,18 @@ def signupPost():
 		email = request.form['email']
 		password = request.form['password']  #HASH IT FIRST
 	
-		connection = mysql.connector.connect(**config)
-		cursor = connection.cursor()
-
-		cursor.execute('SELECT * FROM Users WHERE email = %s', (email,))
-		data = cursor.fetchall()
+		data = dbutils.execute_query('SELECT * FROM Users WHERE email = %s;', (email,))
 
 		if data:
 			flash('Email já cadastrado.')
 			return redirect(url_for('auth.signup'))
 
 		hashed_password = generate_password_hash(password, method='sha256')
-		cursor.execute('INSERT INTO Users (id, name, email, password) VALUES (%s, %s, %s, %s)', (str(uuid.uuid4().hex), user, email, hashed_password))
+		dbutils.execute_statement('INSERT INTO Users (name, email, password) VALUES (%s, %s, %s);', (user, email, hashed_password))
 		
-		flash('Cadastro realizado com sucesso')
+		flash('Cadastro realizado com sucesso. Bem-vindo, ' + user)
 		return redirect(url_for('main.index'))
+
 
 @auth.route('/logout')
 @login_required
