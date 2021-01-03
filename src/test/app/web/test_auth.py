@@ -24,7 +24,6 @@ class TestAuth(db_testcase.DbTestCase):
         }
 
         client.post('/login', data=form)
-        self.assert_flash_message(client, 'Bem-vindo, ' + user)
         self.assert_user_logged_in(client, self.get_user_id(email))
 
     def test_signup_with_already_registered_user(self):
@@ -51,7 +50,7 @@ class TestAuth(db_testcase.DbTestCase):
         }
 
         client.post('/signup', data=form)
-        self.assert_flash_message(client, 'Cadastro realizado com sucesso. Bem-vindo, ' + user)
+        self.assert_flash_message(client, None)
 
     def test_login_should_login(self):
         user = self.create_user()
@@ -62,7 +61,6 @@ class TestAuth(db_testcase.DbTestCase):
         }
 
         client.post('/login', data=form)
-        self.assert_flash_message(client, 'Bem-vindo, ' + user['name'])
         self.assert_user_logged_in(client, user['id'])
 
     def test_login_user_does_not_exist(self):
