@@ -50,7 +50,7 @@ class TestAuth(db_testcase.DbTestCase):
         }
 
         client.post('/signup', data=form)
-        self.assert_flash_message(client, None)
+        self.assert_flash_message(client, '')
 
     def test_login_should_login(self):
         user = self.create_user()

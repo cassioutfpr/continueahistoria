@@ -40,9 +40,11 @@ class DbTestCase(unittest.TestCase):
         return {'id': user_id, 'name': name, 'email': email, 'password': password}
 
     def assert_flash_message(self, client, expected_message):
+        message = ''
         with client.session_transaction() as session:
-            _, message = session['_flashes'][0]
-            self.assertIn(expected_message, message)
+            if session:
+                _, message = session['_flashes'][0]
+        self.assertIn(expected_message, message)
 
     def __rollbackToSavePoint(self):
         dbutils.execute_statement('ROLLBACK TO SAVEPOINT after_test')
