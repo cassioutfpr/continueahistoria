@@ -1,3 +1,7 @@
+import os
+if 'MAIN_DB_HOST' not in os.environ:
+    os.environ['MAIN_DB_HOST'] = 'localhost'
+
 import unittest
 from src.app.lib.db.dbconnection import *
 from src.app.lib.utils import dbutils
