@@ -4,6 +4,27 @@ from src.app.app import app
 
 class TestAuth(db_testcase.DbTestCase):
 
+    def test_signup_and_login(self):
+        client = app.test_client()
+        user = 'kikinho123'
+        email = 'kiko_loureiro@megadeth.com'
+        password = 'mustaine_eh_doido'
+        form = {
+            'user': user,
+            'email': email,
+            'password': password
+        }
+
+        client.post('/signup', data=form)
+
+        form = {
+            'email': email,
+            'password': password
+        }
+
+        client.post('/login', data=form)
+        self.assert_flash_message(client, 'Bem-vindo, ' + user)
+
     def test_signup_with_already_registered_user(self):
         existent_user = self.create_user()
         client = app.test_client()
