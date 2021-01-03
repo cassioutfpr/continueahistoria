@@ -29,7 +29,6 @@ def loginPost():
 			return redirect(url_for('auth.login'))
 
 		login_user(User(data[0]['id'], data[0]['name'], data[0]['email'], data[0]['password']))
-		flash('Bem-vindo, ' + data[0]['name'])
 
 		return redirect(url_for('main.index'))
 
@@ -58,7 +57,6 @@ def signupPost():
 		hashed_password = generate_password_hash(password, method='sha256')
 		dbutils.execute_statement('INSERT INTO Users (name, email, password) VALUES (%s, %s, %s);', (user, email, hashed_password))
 		
-		flash('Cadastro realizado com sucesso. Bem-vindo, ' + user)
 		return redirect(url_for('main.index'))
 
 
