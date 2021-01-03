@@ -1,5 +1,6 @@
 from src.test import db_testcase
 from src.app.app import app
+from src.app.lib.utils import dbutils
 
 
 class TestAuth(db_testcase.DbTestCase):
@@ -24,6 +25,7 @@ class TestAuth(db_testcase.DbTestCase):
 
         client.post('/login', data=form)
         self.assert_flash_message(client, 'Bem-vindo, ' + user)
+        self.assert_user_logged_in(client, self.get_user_id(email))
 
     def test_signup_with_already_registered_user(self):
         existent_user = self.create_user()
@@ -61,6 +63,7 @@ class TestAuth(db_testcase.DbTestCase):
 
         client.post('/login', data=form)
         self.assert_flash_message(client, 'Bem-vindo, ' + user['name'])
+        self.assert_user_logged_in(client, user['id'])
 
     def test_login_user_does_not_exist(self):
         client = app.test_client()
@@ -82,3 +85,11 @@ class TestAuth(db_testcase.DbTestCase):
 
         client.post('/login', data=form)
         self.assert_flash_message(client, 'Senha inválida')
+
+    def get_user_id(self, email):
+        data = dbutils.execute_query('SELECT id FROM Users WHERE email = %s;', (email,))
+        return data[0]['id']
+
+    def assert_user_logged_in(self, client, user_id):
+        with client.session_transaction() as session:
+            self.assertEqual(user_id, int(session['_user_id']))
