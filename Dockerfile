@@ -9,13 +9,17 @@ EXPOSE 5000
 # Sets the working directory for following COPY and CMD instructions
 # Notice we haven’t created a directory by this name - this instruction 
 # creates a directory with this name if it doesn’t exist
-WORKDIR dir
+WORKDIR src
 
 # COPY EVERITHING TO DIR FOLDER
-COPY * /dir/
+COPY * /src/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r ./requirements.txt
 
-# Run app.py when the container launches
-CMD python ./src/app/app.py
+# Seed database and run app
+CMD cd src/app && \
+    flask db upgrade && \
+    cd ../.. && \
+    python ./src/app/db_seed.py && \
+    python ./src/app/app.py
