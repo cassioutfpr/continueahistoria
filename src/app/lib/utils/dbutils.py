@@ -16,7 +16,10 @@ def execute_query(query, params=()):
 def execute_statement(statement, params=()):
     cursor = DbConnection.get_main_cursor()
     cursor.execute(statement, params)
+    inserted_id = cursor.lastrowid
     cursor.close()
+
+    return inserted_id
 
 
 def __build_dictionary_result_set(columns, rows):
