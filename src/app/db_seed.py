@@ -13,5 +13,4 @@ print('Seeding database')
 for seed in seeds:
     dbutils.execute_statement(seed)
 
-dbutils.commit()
 print('Finished seeding')

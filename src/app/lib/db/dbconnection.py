@@ -12,6 +12,7 @@ class DbConnection:
         'database': 'Cah'
     }
     main_connection = mysql.connector.connect(**main_db_config)
+    main_connection.autocommit = True
 
     def __del__(self):
         DbConnection.main_connection.commit()
