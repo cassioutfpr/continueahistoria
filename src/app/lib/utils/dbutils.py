@@ -22,6 +22,10 @@ def execute_statement(statement, params=()):
     return inserted_id
 
 
+def commit():
+    DbConnection.main_connection.commit()
+
+
 def __build_dictionary_result_set(columns, rows):
     result_set = []
 

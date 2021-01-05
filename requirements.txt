@@ -1,3 +1,6 @@
 Flask
 mysql-connector
 flask-login
+Flask-SQLAlchemy
+Flask-Migrate
+pymysql
