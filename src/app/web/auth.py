@@ -1,7 +1,9 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user, logout_user, login_required
 from .models import User
+from lib.utils import safeUrl
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.urls import url_parse
 import mysql.connector
 import uuid
 import os
@@ -15,12 +17,11 @@ config = {
 	'database': 'Cah'
 }
 
-@auth.route('/login')
-def login():
-	return render_template('login.html')
+next_page = None
 
-@auth.route('/login', methods=['POST'])
-def loginPost():
+@auth.route('/login', methods=['GET', 'POST'])
+def login():
+	global next_page
 	if request.method == 'POST':
 		email = request.form['email']
 		password = request.form['password'] 
@@ -29,6 +30,8 @@ def loginPost():
 		cursor = connection.cursor()
 		cursor.execute('SELECT * FROM Users WHERE email = %s', (email,))
 		data = cursor.fetchall()
+
+		print(data)
 
 		if not data:
 			flash('Credenciais erradas')
@@ -42,7 +45,12 @@ def loginPost():
 		#vamos evitar magic numbers, por favor
 		login_user(User(data[0][0], data[0][1], data[0][2], data[0][3]))
 
-		return redirect(url_for('main.index'))
+		if not next_page or not safeUrl.is_safe_url(next_page, request):
+			next_page = url_for('main.index')
+		return redirect(next_page)
+
+	next_page = request.args.get('next')
+	return render_template('login.html')
 
 @auth.route('/signup')
 def signup():
@@ -56,7 +64,8 @@ def signupPost():
 
 		user = request.form['user']
 		email = request.form['email']
-		password = request.form['password']  #HASH IT FIRST
+		password = request.form['password']
+		confirmPassword = request.form['confirmPassword']
 	
 		connection = mysql.connector.connect(**config)
 		cursor = connection.cursor()
@@ -68,11 +77,15 @@ def signupPost():
 			flash('Email já cadastrado.')
 			return redirect(url_for('auth.signup'))
 
+		if password != confirmPassword:
+			flash('As senhas devem ser iguais.')	
+			return redirect(url_for('auth.signup'))
+
 		hashed_password = generate_password_hash(password, method='sha256')
-		cursor.execute('INSERT INTO Users (id, name, email, password) VALUES (%s, %s, %s, %s)', (str(uuid.uuid4().hex), user, email, hashed_password))
+		cursor.execute('INSERT INTO Users (name, email, password) VALUES (%s, %s, %s)', (user, email, hashed_password))
 		
 		connection.commit()
-		flash('Cadastro realizado com sucesso')
+		
 		cursor.close()
 		connection.close()
 	

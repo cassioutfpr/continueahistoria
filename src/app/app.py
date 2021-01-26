@@ -31,6 +31,7 @@ login_manager.init_app(app)
 
 @login_manager.user_loader
 def load_user(user_id):
+	print('opdsa')
 	connection = mysql.connector.connect(**config)
 	cursor = connection.cursor()
 	cursor.execute('SELECT * FROM Users WHERE id = %s', (user_id,))

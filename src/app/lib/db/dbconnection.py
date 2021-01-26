@@ -1,7 +1,6 @@
 import mysql.connector
 import os
 
-
 class DbConnection:
 
     main_db_config = {
