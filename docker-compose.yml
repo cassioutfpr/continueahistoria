@@ -9,7 +9,7 @@ services:
     environment:
       MAIN_DB_HOST: "mysql"
     volumes: 
-      ['.:/dir']
+      ['.:/src']
 
   mysql:
     image: mysql:5.7
