@@ -2,14 +2,31 @@
 
 {% block body %}
 
+<style type="text/css">
+	hr {
+	  	margin-top: 5px;
+	  	margin-bottom: 5px;
+	  	border: 0;
+	  	border-top: 1px solid rgba(0, 0, 0, 0.1);
+	}
+	.hr-text {
+		font-size: 10px;
+		color: gray;
+	}
+	.button-style {
+		text-transform: none;
+		font-size: 16px;
+	}
+</style>
+
 <div class="col-md-4 offset-md-4 mt-5 pt-5">
 	<div class="card card-body">
-			<form action="/login" method="POST">
+			<form action="{{ url_for('auth.login') }}" method="POST">
 
 				{% with messages = get_flashed_messages() %}
 				{% if messages %}
 				{% for message in messages %}
-					<div class="alert alert-success alert-dismissible fade show" role="alert">
+					<div class="alert alert-danger alert-dismissible fade show" role="alert">
 					  <strong>{{ message }}</strong>
 						<button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					</div>
@@ -17,21 +34,41 @@
 				{% endif %}
 				{% endwith %}
 			
-				<h5 class="card-title">Login</h5>
+				<h5 style="text-align:center;" class="card-title mb-4">Entrar no Continue a História</h5>
 
-				<div class="form-group">
+				<div class="form-group mb-2">
 					<input type="text" name="email" placeholder="Email" class="form-control">
 				</div>
 
-				<div class="form-group">
+				<div class="form-group mb-3">
 					<input type="text" name="password" placeholder="Senha" class="form-control">
 				</div>
 
-				<div class="form-group">
-					<button type="submit" class="btn btn-success btn-block">Login</button>
+				<div class="d-grid gap-2 mb-4">
+					<button type="submit" class="btn btn-primary  button-style"><b>Entrar</b></button>
 				</div>
-				
 			</form>
+			<div style="text-align: center">
+			    <a href="{{ url_for('auth.signup') }}">Esqueceu a senha?</a>
+			</div>
+			<div class="row align-items-centers h-100 m-2">
+				<div class="col pr-0">
+					<p>
+					   <hr/>
+					</p>	
+				</div>
+				<div class="col-auto pl-1 pr-1 hr-text my-auto">
+					ou
+				</div>
+				<div class="col pl-0">
+					<p>
+					   <hr/>
+					</p>
+				</div>
+			</div>
+			<div class="d-flex justify-content-center" style="width: fit-content;">
+				<a class="btn btn-success button-style" aria-current="page" href="/write_story" ><b>Criar nova conta</b></a>
+			</div>
 		</div>
 </div>
 

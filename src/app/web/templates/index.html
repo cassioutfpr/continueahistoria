@@ -3,9 +3,59 @@
 {% block body %}
 
 <style type="text/css">
+	/*
+	 * Sidebar
+	 */
+
 	.sidebar {
-		height: 100vh;
+	  position: fixed;
+	  top: 0;
+	  bottom: 0;
+	  left: 0;
+	  z-index: 100; /* Behind the navbar */
+	  padding: 48px 0 0; /* Height of navbar */
+	  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
 	}
+
+	@media (max-width: 767.98px) {
+	  .sidebar {
+	    top: 5rem;
+	  }
+	}
+
+	.sidebar-sticky {
+	  position: relative;
+	  top: 0;
+	  height: calc(100vh - 48px);
+	  padding-top: .5rem;
+	  overflow-x: hidden;
+	  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+	}
+
+	.sidebar .nav-link {
+	  font-weight: 500;
+	  color: #333;
+	}
+
+	.sidebar .nav-link .feather {
+	  margin-right: 4px;
+	  color: #727272;
+	}
+
+	.sidebar .nav-link.active {
+	  color: #007bff;
+	}
+
+	.sidebar .nav-link:hover .feather,
+	.sidebar .nav-link.active .feather {
+	  color: inherit;
+	}
+
+	.sidebar-heading {
+	  font-size: .75rem;
+	  text-transform: uppercase;
+	}
+
 	.stories-wrapper {
 		border-left-style: solid; 
 		border-left-width: 1px;
@@ -15,7 +65,6 @@
 		border-style: solid; 
 		border-width: 1px;
 		border-color: #b4b4b4; 
-		border-left-width: 0px;
 		background-color: white;
 	}
 	.tag {
@@ -34,141 +83,140 @@
 	}
 </style>
 
-<div class="row mt-4">
-	<div class="col-md-2 d-none d-md-table-cell pt-4 pr-0 sidebar" style="b">
-		<div class="pl-3 pr-0" style="position: fixed;">
-		  	<div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-				<a class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-				<a class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Perfil</a>
-				<a class="nav-link" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Notificações</a>
-		    	<a class="nav-link" id="v-pills-settings-tab" data-bs-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Ajuda</a>
-		 	</div>
-		</div>
-	</div>
 
-	<div class="container stories-wrapper col-md-7 pt-4 pl-0 pr-0 m-0">
-		<div class="row m-0" style="border-style: none">
-			<div class="col pl-3" style="font-size: 26px;">
-				Todas as Hitórias
+
+<div class="container-fluid ps-0 pe-0">
+	<div class="row">
+		<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-lg-block bg-light sidebar collapse">
+			<div class="position-sticky pt-3">
+				<ul class="nav flex-column">
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="#">
+							<span data-feather="home"></span>
+							Continue a História
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							<span data-feather="file"></span>
+							Perfil
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">
+							<span data-feather="file"></span>
+							Sobre
+						</a>
+					</li>
+				</ul>
 			</div>
-			<div class="col-sm-auto pr-0">
-				<a class="btn btn-primary" aria-current="page" href="/write_story">Criar História</a>
-			</div>
-		</div>
+	    </nav>
 
-		<div class="row pt-4 m-0">
-			<div class="col pl-3" style="font-size: 18px;">
-				32132 histórias
-			</div>
-			<div class="col-sm-auto pr-0">
-				<nav aria-label="Page navigation example">
-	  				<ul class="pagination">
-	    				<li class="page-item"><a class="page-link" href="#">Populares</a></li>
-	    				<li class="page-item"><a class="page-link" href="#">Ativas</a></li>
-	    				<li class="page-item"><a class="page-link" href="#">Novas</a></li>
-	    				<li class="page-item"><a class="page-link" href="#">Minhas</a></li>
-	  				</ul>
-				</nav>
-			</div>
-		</div>
-
-
-
-		<div class="container card-wrapper">
-			<div class="row mt-2">
-				<div class="col-auto" style="text-align: center;">
-					<div class="d-grid gap-0">
-						<div class="p-0" style="">8415</div>
-						<div class="p-0" style="font-size: 8px">votos</div>
-					</div>
-					<div class="d-grid gap-0 mt-2">
-						<div class="p-0" style="">42</div>
-						<div class="p-0" style="font-size: 8px">respostas</div>
-					</div>
-				</div>
-				<div class="col" style="text-align: left">
-					<a class="nav-link p-0" aria-current="false" href="#" style="font-size: 16px">A cigarra e a formiga</a>
-					<p style="font-size: 10px" class="mb-0">Havia uma cigarra que passou todo o verão a cantar, aproveitando os agradáveis fins de tarde e curtindo o tempo de forma despreocupada. Mas quando chegou o gelado inverno, a cigarra já não ...</p>
-					<div class="row mt-1 mb-2 pl-3">
-						<div class="col">
-							<div class="row">
-								<div class="col-auto pr-0 pl-0">
-								 	<button type="button" class="tag btn btn-outline-primary btn-sm p-1">terror</button>
-								</div>
-								<div class="col-auto pr-0 pl-1">
-								 	<button type="button" class="tag btn btn-outline-primary btn-sm p-1">fantasia</button>
-								</div>
-								<div class="col-2 pr-0 pl-1">
-								 	<button type="button" class="tag btn btn-outline-primary btn-sm p-1">comédia</button>
-								</div>
+		<main class="col-sm-flex col-lg-10 ms-lg-auto pt-4">
+			<div class="row">
+				<div class="col-sm-flex col-md-9 p-0">
+					<div class="stories-header">
+						<div class="row m-0" style="border-style: none">
+							<div class="col pl-3" style="font-size: 26px;">
+								Todas as Hitórias
+							</div>
+							<div class="col-auto p-0">
+								<a class="btn btn-primary" aria-current="page" href="/write_story">Criar História</a>
 							</div>
 						</div>
 
-						<div class="col-auto" style="font-size: 10px">
-							<div class="d-grid gap-0">
-								<div class="p-0">Criado em 24/12/20</div>
+						<div class="row pt-4 m-0">
+							<div class="col pl-3" style="font-size: 18px;">
+								32132 histórias
 							</div>
-						  	<div class="d-grid gap-0 mt-1">
-								Autor: <a class="nav-link p-0" aria-current="false" href="#" style="display: inline;">Seu Joaquim</a>
-						  	</div>
+							<div class="col-auto p-0">
+								<nav aria-label="Page navigation example">
+					  				<ul class="pagination">
+					    				<li class="page-item"><a class="page-link" href="#">Populares</a></li>
+					    				<li class="page-item"><a class="page-link" href="#">Ativas</a></li>
+					    				<li class="page-item"><a class="page-link" href="#">Novas</a></li>
+					    				<li class="page-item"><a class="page-link" href="#">Minhas</a></li>
+					  				</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="card-wrapper mx-sm-0">
+						<div class="row mt-2">
+							<div class="col-auto" style="text-align: center;">
+								<div class="d-grid gap-0">
+									<div class="p-0" style="">8415</div>
+									<div class="p-0" style="font-size: 8px">votos</div>
+								</div>
+								<div class="d-grid gap-0 mt-2">
+									<div class="p-0" style="">42</div>
+									<div class="p-0" style="font-size: 8px">respostas</div>
+								</div>
+							</div>
+							<div class="col" style="text-align: left">
+								<a class="nav-link p-0" aria-current="false" href="#" style="font-size: 16px">A cigarra e a formiga</a>
+								<p style="font-size: 10px" class="mb-0">Havia uma cigarra que passou todo o verão a cantar, aproveitando os agradáveis fins de tarde e curtindo o tempo de forma despreocupada. Mas quando chegou o gelado inverno, a cigarra já não ...</p>
+								<div class="row mt-1 mb-2 px-0">
+									<div class="col">
+										<div class="row">
+											<div class="col-auto pe-0">
+											 	<button type="button" class="tag btn btn-outline-primary btn-sm p-1">terror</button>
+											</div>
+											<div class="col-auto ps-1 pe-0">
+											 	<button type="button" class="tag btn btn-outline-primary btn-sm p-1">fantasia</button>
+											</div>
+											<div class="col-2 ps-1 pe-0">
+											 	<button type="button" class="tag btn btn-outline-primary btn-sm p-1">comédia</button>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-auto" style="font-size: 10px">
+										<div class="d-grid gap-0">
+											<div class="p-0">Criado em 24/12/20</div>
+										</div>
+									  	<div class="d-grid gap-0 mt-1">
+											<a class="nav-link p-0" aria-current="false" href="#" style="display: inline;">Seu Joaquim</a>
+									  	</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<nav class="mt-2" aria-label="...">
-		  	<ul class="pagination">
-		    	<li class="page-item disabled">
-		      		<span class="page-link">Previous</span>
-		    	</li>
-		    	<li class="page-item"><a class="page-link" href="#">1</a></li>
-		    	<li class="page-item active" aria-current="page">
-		      		<span class="page-link">2</span>
-		    	</li>
-		    	<li class="page-item"><a class="page-link" href="#">3</a></li>
-		    	<li class="page-item">
-		      		<a class="page-link" href="#">Next</a>
-		    	</li>
-		  	</ul>
-		</nav>
-	</div>
 
-	<div class="col-md d-none d-md-table-cell pl-4" style="height: 100vh;">
-		<div class="mb-2 mt-4" style="font-size: 18px;	">
-			Categorias
-		</div>
-		<div class="container mb-2" style="text-align: left;">
-		  	<div class="row row-cols-auto">
-		    	<div class="col-auto p-0">
-		    		<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1">terror</button>
-		   	 	</div>
-		    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
-		  	</div>
-		</div>
-		<div class="container mb-2" style="text-align: left;">
-		  	<div class="row row-cols-auto">
-		    	<div class="col-auto p-0">
-		    		<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1">fantasia</button>
-		   	 	</div>
-		    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
-		  	</div>
-		</div>
-		<div class="container mb-2" style="text-align: left;">
-		  	<div class="row row-cols-auto">
-		    	<div class="col-auto p-0">
-		    		<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1" >romance</button>
-		   	 	</div>
-		    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
-		  	</div>
-		</div>
+				<div class="col-md-auto d-none d-md-block">
+					<div class="mb-2 ps-2" style="font-size: 18px;	">
+						Categorias
+					</div>
+					<div class="container mb-2 pl-1" style="text-align: left;">
+					  	<div class="row row-cols-auto">
+					    	<div class="col-auto p-0">
+					    		<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1">terror</button>
+					   	 	</div>
+					    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
+					  	</div>
+					</div>
+					<div class="container mb-2" style="text-align: left;">
+					  	<div class="row row-cols-auto">
+					    	<div class="col-auto p-0">
+					    		<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1">fantasia</button>
+					   	 	</div>
+					    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
+					  	</div>
+					</div>
+					<div class="container mb-2" style="text-align: left;">
+					  	<div class="row row-cols-auto">
+					    	<div class="col-auto p-0">
+					    		<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1" >romance</button>
+					   	 	</div>
+					    	<div class="col pl-1 align-self-center" style="font-size: 9px; color: #919191">x 41512</div>
+					  	</div>
+					</div>
+				</div>
+			</div>
+		</main>
 	</div>
-	
 </div>
-
-<footer>
-	<div class="row navbar-dark bg-dark">
-		&copy 2020
-	</div>
-</footer>
-
+	
 {% endblock %}

@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, redirect, url_for, request, flash
 from flask_login import login_user, logout_user, login_required
+from werkzeug.urls import url_parse
 from src.app.web.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from src.app.lib.utils import dbutils
@@ -7,18 +8,18 @@ from src.app.lib.utils import dbutils
 auth = Blueprint('auth', __name__)
 
 
-@auth.route('/login')
+next_page = None
+
+@auth.route('/login', methods=['GET', 'POST'])
 def login():
-	return render_template('login.html')
-
-
-@auth.route('/login', methods=['POST'])
-def loginPost():
+	global next_page
 	if request.method == 'POST':
 		email = request.form['email']
 		password = request.form['password']
 
 		data = dbutils.execute_query('SELECT * FROM Users WHERE email = %s', (email,))
+
+		print(data)
 
 		if not data:
 			flash('Usuário não cadastrado')
@@ -30,7 +31,12 @@ def loginPost():
 
 		login_user(User(data[0]['id'], data[0]['name'], data[0]['email'], data[0]['password']))
 
-		return redirect(url_for('main.index'))
+		if not next_page or not safeUrl.is_safe_url(next_page, request):
+			next_page = url_for('main.index')
+		return redirect(next_page)
+
+	next_page = request.args.get('next')
+	return render_template('login.html')
 
 
 @auth.route('/signup')
@@ -46,12 +52,17 @@ def signupPost():
 
 		user = request.form['user']
 		email = request.form['email']
-		password = request.form['password']  #HASH IT FIRST
+		password = request.form['password']
+		confirmPassword = request.form['confirmPassword']
 	
 		data = dbutils.execute_query('SELECT * FROM Users WHERE email = %s;', (email,))
 
 		if data:
 			flash('Email já cadastrado.')
+			return redirect(url_for('auth.signup'))
+
+		if password != confirmPassword:
+			flash('As senhas devem ser iguais.')	
 			return redirect(url_for('auth.signup'))
 
 		hashed_password = generate_password_hash(password, method='sha256')

@@ -1,0 +1,154 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<style type="text/css">
+	.title-title {
+		font-size: 22px;
+	}
+	.title-user {
+		font-size: 10px;
+		text-align: left;
+		color: black;
+	}
+	.title-user:hover {
+		text-decoration: underline;
+		color: black;
+	}
+	.title-date {
+		font-size: 9px;
+		color: gray;
+	}
+	.iconbtn{
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;  
+	}
+	.btn-up:hover {
+		background-color: green;
+	}
+	.btn-down:hover {
+		background-color: red;
+	}
+	hr {
+	  	margin-top: 5px;
+	  	margin-bottom: 5px;
+	  	border: 0;
+	  	border-top: 1px solid gray;
+	}
+	.response {
+		margin-top: 20px;
+	}
+	.poll {
+		text-align: center; 
+		border-right: 1px solid rgba(0, 0, 0, 0.3);
+	}
+	.vish {
+		text-align: center; 
+		border-right: 1px solid rgba(0, 0, 0, 0.3);
+	}
+	.title:hover .poll{
+		border-right: 1px solid green;
+	}
+	.response:hover .poll{
+		border-right: 1px solid green;
+	}
+</style>
+
+<div class="p-0" id="content">
+	<div class="row mt-5 pt-4 pl-2 pr-2">
+		<div class="container col-md-9 ">
+			<div class="card">
+		  		<div class="card-body">
+		  			<div class="title">
+		  				<div class="row">
+		  					<div class="col-auto pl-2 pr-2 poll">
+					      		<div>
+					      			<button type="button" class="btn btn-link btn-sm btn-up" style="height: 24px;width: 32px;">
+					      				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class=	"bi bi-caret-up-fill iconbtn" viewBox="0 0 16 16">
+						 					<path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+										</svg>
+					      			</button>
+					      		</div>
+					      		185
+					      		<div>
+					      			<button type="button" class="btn btn-link btn-sm btn-down" style="height: 24px;width: 32px;">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi 		bi-caret-down" viewBox="0 0 16 16">
+						  					<path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 	0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+										</svg>
+					      			</button>
+					      		</div>
+		  					</div>
+		  					<div class="col pl-2">
+				  				<div class="row" style="height: 30px;">
+				  					<div class="col-auto pr-0">
+				  						<a class="nav-link mb-0 pl-0 title-user" aria-current="false" href="#"><b>seu_joaquim</b></a>
+				  					</div>
+				  					<div class="col-auto d-flex align-items-center pl-0">
+				  						<p class="title-date text-center mb-0">875 pontos</p>
+				  					</div>
+				  					<div class="col-auto d-flex align-items-center pl-0">
+				  						<p class="title-date text-center mb-0">Postado há 4 dias</p>
+				  					</div>
+
+				  				</div>
+								<p class="mb-1 title-title"><b>Título da história</b></p>
+								<p class="title-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum ultrices gravida. Donec turpis elit, auctor non lacinia a, hendrerit vel nisl. Aliquam erat volutpat. Nam eu gravida arcu. Quisque dapibus quam eu molestie facilisis. In at nunc in erat gravida dapibus. Nulla et maximus arcu. Phasellus nec nisi auctor, condimentum metus ac, auctor risus. Donec blandit sodales interdum. Ut consequat lorem justo, ut bibendum purus elementum quis. Suspendisse luctus tellus ut tempus finibus. Praesent in turpis varius, porttitor erat quis, iaculis risus. Nam vitae nibh egestas, consequat ex eu, vestibulum eros. Nam pretium libero non suscipit hendrerit. Duis aliquam enim a nunc feugiat congue. Maecenas sed lacus ac magna venenatis lacinia. Aenean tincidunt ut erat nec placerat. Donec dapibus hendrerit metus, non malesuada mauris tempor non. </p>
+							</div>
+						</div>
+			    	</div>
+			    	<div class="response">
+		  				<div class="row">
+		  					<div class="col-auto pl-2 pr-2 poll">
+					      		<div>
+					      			<button type="button" class="btn btn-link btn-sm btn-up" style="height: 24px;width: 32px;">
+					      				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class=	"bi bi-caret-up-fill iconbtn" viewBox="0 0 16 16">
+						 					<path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+										</svg>
+					      			</button>
+					      		</div>
+					      		185
+					      		<div>
+					      			<button type="button" class="btn btn-link btn-sm btn-down" style="height: 24px;width: 32px;">
+										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi 		bi-caret-down" viewBox="0 0 16 16">
+						  					<path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1 	0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+										</svg>
+					      			</button>
+					      		</div>
+		  					</div>
+		  					<div class="col pl-2">
+				  				<div class="row" style="height: 30px;">
+				  					<div class="col-auto pr-0">
+				  						<a class="nav-link mb-0 pl-0 title-user" aria-current="false" href="#"><b>seu_joaquim</b></a>
+				  					</div>
+				  					<div class="col-auto d-flex align-items-center pl-0">
+				  						<p class="title-date text-center mb-0">875 pontos</p>
+				  					</div>
+				  					<div class="col-auto d-flex align-items-center pl-0">
+				  						<p class="title-date text-center mb-0">Postado há 4 dias</p>
+				  					</div>
+
+				  				</div>
+								<p class="title-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum ultrices gravida. Donec turpis elit, auctor non lacinia a, hendrerit vel nisl. Aliquam erat volutpat. Nam eu gravida arcu. Quisque dapibus quam eu molestie facilisis. In at nunc in erat gravida dapibus. Nulla et maximus arcu. Phasellus nec nisi auctor, condimentum metus ac, auctor risus. Donec blandit sodales interdum. Ut consequat lorem justo, ut bibendum purus elementum quis. Suspendisse luctus tellus ut tempus finibus. Praesent in turpis varius, porttitor erat quis, iaculis risus. Nam vitae nibh egestas, consequat ex eu, vestibulum eros. Nam pretium libero non suscipit hendrerit. Duis aliquam enim a nunc feugiat congue. Maecenas sed lacus ac magna venenatis lacinia. Aenean tincidunt ut erat nec placerat. Donec dapibus hendrerit metus, non malesuada mauris tempor non. </p>
+							</div>
+						</div>
+			    	</div>
+			  	</div>
+			</div>
+		</div>
+		<div class="container col-md-3 d-none d-md-table-cell">
+			<div class="card">
+		  		<div class="card-body">
+		    		<p><b>Regras:</b></p>
+		    		<ul class="pl-3" style="font-size: 12px">
+  						<li>Máximo de 160 caracteres</li>
+  						<li>5 votos para continuação entrar</li>
+  						<li>Não necessita de aprovação de autor</li>
+					</ul>  
+			  	</div>
+			</div>
+		</div>					
+	</div>
+</div>	
+
+{% endblock %}
