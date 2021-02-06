@@ -6,6 +6,8 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from flask_avatars import Avatars
+from flask_robohash import Robohash
 from src.app.web.auth import auth
 from src.app.web.main import main
 from src.app.web.models import User
@@ -13,6 +15,10 @@ from src.app.lib.utils import dbutils
 from src.app.lib.db.dbconnection import DbConnection
 
 app = Flask(__name__, template_folder='web/templates')
+
+avatars = Avatars(app)
+robohash = Robohash()
+robohash.init_app(app)
 
 #settings
 app.secret_key = 'mysecretkey'
