@@ -16,7 +16,6 @@ COPY * /src/
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r ./requirements.txt
-RUN pip install robohash
 
 # Seed database and run app
 CMD cd src/app && \
