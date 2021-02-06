@@ -39,11 +39,11 @@
 	.response {
 		margin-top: 20px;
 	}
+    .userResponse {
+        margin-top: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+    }
 	.poll {
-		text-align: center; 
-		border-right: 1px solid rgba(0, 0, 0, 0.3);
-	}
-	.vish {
 		text-align: center; 
 		border-right: 1px solid rgba(0, 0, 0, 0.3);
 	}
@@ -53,10 +53,16 @@
 	.response:hover .poll{
 		border-right: 1px solid green;
 	}
+    #mybutton {
+        position: fixed;
+        bottom: 10px;
+        right: 20px;
+        width: 80px;
+    }
 </style>
 
 <div class="p-0" id="content">
-	<div class="row mt-5 pt-4 pl-2 pr-2">
+	<div class="row mt-2 pt-4 pl-2 pr-2">
 		<div class="container col-md-9 ">
 			<div class="card">
 		  		<div class="card-body">
@@ -133,6 +139,84 @@
 							</div>
 						</div>
 			    	</div>
+                    <div class="mt-3" style="font-weight: bold">
+                        Continue a história
+                    </div>
+<!--                     {% if not current_user.is_authenticated %}
+                    <div class="userResponse" id="opa">
+                        <div class="px-2 py-2">
+                            <div class= "d-none d-lg-block">
+                                <div class="row">
+                                    <div class="col" style="font-weight: 600;color: gray;  height: 38px;line-height: 38px; ">
+                                        Faça login ou cadastre-se para continuar a história.
+                                    </div>
+                                    <div class="col-2 px-0">
+                                        <a style="float: right" class="btn btn-outline-primary" aria-current="page" href="/write_story">Login</a>
+                                    </div>
+                                    <div class="col-2 ps-4">
+                                        <a style="float: left" class="btn btn-primary" aria-current="page" href="/write_story">Cadastrar</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-lg-none">
+                                <div style="font-weight: 600;color: gray">
+                                    Faça login ou cadastre-se para continuar a história.
+                                </div>
+                                <div class="d-flex justify-content-center mt-3" style="width: fit-content;">
+                                    <a class="btn btn-outline-primary button-style" aria-current="page" href="/write_story" ><b>Login</b></a>
+                                </div>
+                                <div class="d-flex justify-content-center mt-2" style="width: fit-content;">
+                                    <a class="btn btn-primary button-style" aria-current="page" href="/write_story" ><b>Cadastrar</b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if current_user.is_authenticated %}
+                    {% endif %} -->
+                    <div class="input-group mt-2" id="opa">
+                        <textarea class="form-control" aria-label="With textarea" placeholder="ex: O leão e o rato estavam andando pelo bosque quando encontraram uma pedra que parecia muito estranha. O leão olhou para o lado e viu..."></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary mt-2"><b>Registrar continuação</b></button>
+                    <div class="mt-3" style="font-weight: bold">
+                        Vote na melhor continuação
+                    </div>
+                                        <div class="response">
+                        <div class="row">
+                            <div class="col-auto pl-2 pr-2 poll">
+                                <div>
+                                    <button type="button" class="btn btn-link btn-sm btn-up" style="height: 24px;width: 32px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green" class=  "bi bi-caret-up-fill iconbtn" viewBox="0 0 16 16">
+                                            <path d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                185
+                                <div>
+                                    <button type="button" class="btn btn-link btn-sm btn-down" style="height: 24px;width: 32px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi         bi-caret-down" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M3.204 5L8 10.481 12.796 5H3.204zm-.753.659l4.796 5.48a1 1     0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col pl-2">
+                                <div class="row" style="height: 30px;">
+                                    <div class="col-auto pr-0">
+                                        <a class="nav-link mb-0 pl-0 title-user" aria-current="false" href="#"><b>seu_joaquim</b></a>
+                                    </div>
+                                    <div class="col-auto d-flex align-items-center pl-0">
+                                        <p class="title-date text-center mb-0">875 pontos</p>
+                                    </div>
+                                    <div class="col-auto d-flex align-items-center pl-0">
+                                        <p class="title-date text-center mb-0">Postado há 4 dias</p>
+                                    </div>
+
+                                </div>
+                                <p class="title-body"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam fermentum ultrices gravida. Donec turpis elit, auctor non lacinia a, hendrerit vel nisl. Aliquam erat volutpat. Nam eu gravida arcu. Quisque dapibus quam eu molestie facilisis. In at nunc in erat gravida dapibus. Nulla et maximus arcu. Phasellus nec nisi auctor, condimentum metus ac, auctor risus. Donec blandit sodales interdum. Ut consequat lorem justo, ut bibendum purus elementum quis. Suspendisse luctus tellus ut tempus finibus. Praesent in turpis varius, porttitor erat quis, iaculis risus. Nam vitae nibh egestas, consequat ex eu, vestibulum eros. Nam pretium libero non suscipit hendrerit. Duis aliquam enim a nunc feugiat congue. Maecenas sed lacus ac magna venenatis lacinia. Aenean tincidunt ut erat nec placerat. Donec dapibus hendrerit metus, non malesuada mauris tempor non. </p>
+                            </div>
+                        </div>
+                    </div>
 			  	</div>
 			</div>
 		</div>
@@ -147,7 +231,13 @@
 					</ul>  
 			  	</div>
 			</div>
-		</div>					
+		</div>
+        <button class="btn btn-primary" type="submit"  onClick="document.getElementById('opa').scrollIntoView();" id="mybutton">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-keyboard" viewBox="0 0 16 16">
+                <path d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h12zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2z"/>
+                <path d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75v-.5zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25v-.5zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75v-.5zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75v-.5zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75v-.5zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75v-.5zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75v-.5zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75v-.5zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75v-.5zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25v-.5z"/>
+            </svg>
+        </button>					
 	</div>
 </div>	
 

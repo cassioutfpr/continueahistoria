@@ -4,6 +4,7 @@ from werkzeug.urls import url_parse
 from src.app.web.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from src.app.lib.utils import dbutils
+from src.app.lib.utils import safeUrl
 
 auth = Blueprint('auth', __name__)
 

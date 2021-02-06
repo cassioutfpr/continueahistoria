@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="p-0" id="content">
+    <div class="card mt-4">
+        <div class="card-body">
+            <div class="row">
+                <div class="container col-md-4 ">
+                    <img style="border: 1px solid gray; border-radius: 100px;  display: block;margin-left: auto;margin-right: auto;" src="{{ 'gfgfd' |  robohash(x=180, y=180, bgset='1', color='red') }}">
+                    <div class="d-flex justify-content-center mt-2" style="width: fit-content;">
+                        <a class="btn btn-success button-style" aria-current="page" href="/write_story" ><b>Trocar imagem</b></a>
+                    </div>
+                    <div class="row d-flex justify-content-center mt-4" style="font-size: 18px;font-weight: 600">
+                        <div class="col-auto pe-0">
+                            Ranking
+                        </div>
+                        <div class="col-auto ps-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-line-fill" viewBox="0 0 16 16" style="margin-bottom: 3px">
+                              <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-2" style="font-size: 16px;max-height: 30px">
+                        Diário #<p style="display: inline;font-weight: 550">75</p>
+                    </div>
+                    <div class="d-flex justify-content-center" style="font-size: 16px;max-height: 30px">
+                        Semanal #<p style="display: inline;font-weight: 550">75</p>
+                    </div>
+                    <div class="d-flex justify-content-center" style="font-size: 16px;max-height: 30px">
+                        Geral #<p style="display: inline;font-weight: 550">75</p>
+                    </div>
+
+                </div>
+                <div class="container col-md-8 d-md-table-cell">
+                    <p class="mb-1" style="font-size: 24px"><b>Luiza Gner</b></p>
+                    <p class="pt-0 mt-0" style="font-size: 16px;font-weight: 550;color:green"><b>75 pontos</b></p>  
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>  
+
+{% endblock %}
