@@ -4,3 +4,4 @@ flask-login
 Flask-SQLAlchemy
 Flask-Migrate
 pymysql
+flask-robohash
