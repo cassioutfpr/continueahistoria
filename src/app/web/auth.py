@@ -30,7 +30,7 @@ def login():
 			flash('Senha inválida')
 			return redirect(url_for('auth.login'))
 
-		login_user(User(data[0]['id'], data[0]['name'], data[0]['email'], data[0]['password']))
+		login_user(User(data[0]['id'], data[0]['name'], data[0]['email'], data[0]['password']), remember=True)
 
 		if not next_page or not safeUrl.is_safe_url(next_page, request):
 			next_page = url_for('main.index')

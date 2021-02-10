@@ -58,7 +58,7 @@
 </style>
 <body>
 
-	<header class="navbar navbar-dark sticky-top bg-dark flex-lg-nowrap p-0 shadow">
+	<header class="navbar navbar-dark sticky-top flex-lg-nowrap p-0 shadow" style="background-color: black;border-bottom: 3px solid #f5c842;">
   		<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{{ url_for('main.index') }}">Continue a história</a>
 <!-- 		<button class="navbar-toggler position-absolute d-lg-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     	<span class="navbar-toggler-icon"></span>
@@ -80,7 +80,7 @@
         {% if current_user.is_authenticated %}
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="{{ url_for('auth.logout') }}">Perfil</a>
+                <a class="nav-link" href="{{ url_for('main.profile') }}">Perfil</a>
             </li>
         </ul>
         <ul class="navbar-nav px-3">
