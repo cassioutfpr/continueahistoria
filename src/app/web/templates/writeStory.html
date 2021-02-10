@@ -36,9 +36,32 @@
 			    		<p class="mb-0"><b>Comece sua história</b></p>
 			    		<p class="mb-0" style="font-size: 10px">Escreva o que achar necessário para estabelecer o local, os personagens e o tom da história.</p>
 			    		<div class="input-group">
-			    		  	<textarea class="form-control" aria-label="With textarea" placeholder="ex: O leão e o rato estavam andando pelo bosque quando encontraram uma pedra que parecia muito estranha. O leão olhou para o lado e viu..."></textarea>
+			    		  	<textarea class="form-control" aria-label="With textarea" placeholder="ex: O leão e o rato estavam andando pelo bosque quando encontraram uma pedra que parecia muito estranha. O leão olhou para o lado e viu..." rows="5"></textarea>
 			    		</div>
 			    	</div>
+                    <div class="mt-4">
+                        <div class="input-group">
+                            <p class="mb-0 align-self-center"><b>Número de votos para continuação entrar na história:</b></p>
+                            <select class="form-select ms-sm-0 ms-md-4" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                <option value="1"selected>Um</option>
+                                <option value="1">Dois</option>
+                                <option value="2">Cinco</option>
+                                <option value="3">Dez</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="input-group">
+                            <p class="mb-0 align-self-center pe-md-2"><b>Número máximo de caracteres para as continuações:</b></p>
+                            <select class="form-select ms-sm-0 ms-md-4" id="inputGroupSelect04" aria-label="Example select with button addon">
+                                <option value="Infinito"selected>Infinito</option>
+                                <option value="30">30</option>
+                                <option value="160">160</option>
+                                <option value="500">500</option>
+                                <option value="3000">3000</option>
+                            </select>
+                        </div>
+                    </div>
 		  			<div class="mt-4"  id="tags-body">
 						<p class="mb-0"><b>Tags</b></p>
 						<p class="mb-0" style="font-size: 10px">Adicione tags para que as pessoas encontrem sua história</p>
@@ -50,7 +73,9 @@
 				    	<button type="button" class="categoty-tag btn btn-outline-primary btn-sm p-1" >fantasia</button>
 			    	</div>
 			  	</div>
-			  	<a style="float: right" class="btn btn-primary mt-3 mb-2" aria-current="page" href="/write_story">Criar História</a>
+                <div class="d-flex justify-content-center mb-2" style="width: fit-content;">
+                    <a class="btn btn-primary button-style" aria-current="page" href="/write_story" ><b>Criar história</b></a>
+                </div>
 			</div>
 		</div>
 		<div class="container col-md-3 d-none d-md-table-cell">
